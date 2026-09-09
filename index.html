@@ -1,1 +1,853 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Synexus</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css">
+
+   <script type="module" src="main.js"></script>
+
+</head>
+
+
+<body>
+    <template id="modal-template">
+
+    <style>
+        .modal {
+            padding: 20px;
+            margin: 20px 0;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background: white;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .modal h2 {
+            margin-top: 0;
+        }
+    </style>
+
+    <div class="modal">
+        <h2>
+            <slot name="title">Default Title</slot>
+        </h2>
+
+        <div>
+            <slot>Default Body</slot>
+        </div>
+    </div>
+
+</template>
+
+    <!-- ===============================
+         SKIP LINK
+         =============================== -->
+
+    <a
+      href="/"
+        class="skip-link">
+        Skip to main content
+    </a>
+
+
+    <!-- ===============================
+         HEADER
+         =============================== -->
+
+    <header>
+
+        <nav>
+
+            <h2>Synexus</h2>
+
+
+            <button
+                class="menu-toggle"
+                aria-label="Toggle Menu">
+                ☰
+            </button>
+
+
+            <ul class="nav-links">
+
+                <li>
+                    <a
+                        href="/"
+                        class="nav-link">
+                        Home
+                    </a>
+                </li>
+
+
+                <li>
+                    <a
+                        href="/about"
+                        class="nav-link">
+                        About
+                    </a>
+                </li>
+
+
+                <li>
+                    <a
+                        href="/initiatives"
+                        class="nav-link">
+                        Initiatives
+                    </a>
+                </li>
+
+
+                <li>
+                    <a
+                        href="/team"
+                        class="nav-link">
+                        Core Team
+                    </a>
+                </li>
+
+
+                <li>
+                    <a
+                        href="/github"
+                        class="nav-link">
+                        GitHub
+                    </a>
+                </li>
+
+
+                <li>
+                    <a
+                        href="/contact"
+                        class="nav-link">
+                        Contact
+                    </a>
+                </li>
+
+            </ul>
+
+
+            <button
+                id="theme-toggle"
+                aria-label="Toggle dark mode">
+                🌙
+            </button>
+
+        </nav>
+
+    </header>
+
+
+    <!-- ===============================
+         MAIN CONTENT
+         =============================== -->
+
+   <main id="app-root">
+
+        <!-- ===========================
+             HOME
+             =========================== -->
+
+        <section id="home">
+
+            <h1 id="hero-title">
+                Empowering the Next Generation
+                of Engineers
+            </h1>
+
+
+            <p>
+                Join our community to learn,
+                collaborate, and build innovative
+                projects with students who share
+                the same passion for technology.
+            </p>
+
+
+            <p>
+                We believe in creating an environment
+                where every student can explore new
+                ideas, improve technical skills,
+                and gain practical experience through
+                teamwork, workshops, coding events,
+                and real-world projects.
+            </p>
+
+
+            <p>
+                Together, we inspire each other to
+                become confident engineers and
+                lifelong learners.
+            </p>
+
+
+            <a
+              href="/about"
+                id="hero-btn"
+                class="nav-link">
+                Join Our Community
+            </a>
+
+        </section>
+       
+        <div
+    id="repos-grid"
+    class="initiatives-grid">
+</div>
+
+        <div 
+    id="repos-grid" 
+    class="initiatives-grid"> 
+</div>
+
+<section id="proposal" class="feature-box">
+
+    <h2>Propose an Initiative</h2>
+
+    <p>
+        Have an idea for a workshop, project, or event?
+        Share your initiative with the Synexus community.
+    </p>
+
+    <form id="proposal-form">
+
+        <label for="proposal-title">
+            Initiative Title
+        </label>
+
+        <input
+            type="text"
+            id="proposal-title"
+            placeholder="Enter initiative title"
+            required
+        >
+
+        <label for="proposal-description">
+            Description
+        </label>
+
+        <textarea
+            id="proposal-description"
+            rows="5"
+            placeholder="Describe your initiative..."
+            required
+        ></textarea>
+
+        <button
+            type="submit"
+            id="proposal-submit-btn">
+            Submit Proposal
+        </button>
+
+    </form>
+
+    <p id="proposal-message"></p>
+
+</section> 
+
+        <section id="manage-proposal" class="feature-box">
+
+    <h2>Manage Proposal</h2>
+
+    <p>
+        Update or delete an existing initiative.
+    </p>
+
+    <button id="update-btn">
+        Update Proposal
+    </button>
+
+    <button id="delete-btn" class="btn-danger">
+        Delete Proposal
+    </button>
+
+    <button id="secure-delete-btn">
+        Secure Delete
+    </button>
+
+</section>
+
+
+        <!-- ===========================
+             ABOUT
+             =========================== -->
+
+        <section
+            id="about"
+            class="hidden">
+
+            <h2>
+                About Us
+            </h2>
+
+
+            <p>
+                Our community is dedicated to
+                empowering students by providing
+                opportunities to learn, innovate,
+                and grow together.
+            </p>
+
+
+            <p>
+                We organize technical workshops,
+                coding sessions, project collaborations,
+                and knowledge-sharing events that
+                help students strengthen both their
+                technical and problem-solving skills.
+            </p>
+
+
+            <p>
+                Our mission is to create a supportive
+                environment where beginners and
+                experienced learners can work together,
+                exchange ideas, and prepare themselves
+                for future careers in engineering
+                and technology.
+            </p>
+
+        </section>
+
+
+
+        <!-- ===========================
+             INITIATIVES
+             =========================== -->
+
+        <section
+            id="initiatives">
+
+            <h2>
+                Our Initiatives
+            </h2>
+
+
+            <p>
+                We organize technical initiatives
+                that help students learn, experiment,
+                collaborate, and gain practical
+                experience.
+            </p>
+
+
+            <p>
+                From hands-on workshops and coding
+                events to hackathons and open-source
+                projects, our initiatives encourage
+                creativity, teamwork, problem-solving,
+                and continuous learning.
+            </p>
+
+
+            <h2>
+                Explore Our Initiatives
+            </h2>
+
+
+            <input
+                type="text"
+                id="search-projects"
+                placeholder="Search initiatives..."
+                aria-label="Search initiatives">
+
+
+            <div
+                class="initiatives-grid"
+                id="dynamic-grid">
+            </div>
+
+        </section>
+
+
+
+        <!-- ===========================
+             CORE TEAM
+             =========================== -->
+
+        <section
+            id="team">
+
+            <h2>
+                Core Team
+            </h2>
+
+
+            <p>
+                Meet the dedicated students who
+                help organize and support the
+                Synexus community.
+            </p>
+
+
+            <div class="team-grid">
+
+                <user-card
+                    name="Jane Doe"
+                    role="Lead Engineer">
+                </user-card>
+
+
+                <div
+                    class="profile-card hidden">
+
+                    <img
+                        src="https://via.placeholder.com/150"
+                        alt="Founder Profile">
+
+
+                    <h3>
+                        Anant Sharma
+                    </h3>
+
+
+                    <p>
+                        Founder
+                    </p>
+
+
+                    <p>
+                        Passionate about building
+                        a collaborative environment
+                        where students can learn
+                        technology and work together
+                        on innovative ideas.
+                    </p>
+
+
+                    <a href="#">
+                        View Profile
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <h2>
+                Our Team's Goal
+            </h2>
+
+
+            <p>
+                We aim to build a community where
+                students feel comfortable asking
+                questions, sharing ideas, taking
+                part in projects, and developing
+                skills that will help them in their
+                future careers.
+            </p>
+
+        </section>
+
+
+
+        <!-- ===========================
+             TESTIMONIALS
+             =========================== -->
+
+        <section
+            id="testimonials"
+            class="hidden">
+
+            <h2>
+                Community Testimonials
+            </h2>
+
+
+            <div id="testimonial-container">
+
+                <h3 id="member-name"></h3>
+
+                <p id="member-quote"></p>
+
+            </div>
+
+        </section>
+
+
+        <section id="community-feed" class="hidden">
+
+            <div class="feed-header">
+
+                <h2>Synexus Community Feed</h2>
+
+                <p>
+                    Discover ideas, projects, and updates
+                    from the Synexus community.
+                </p>
+
+            </div>
+
+            <data-feed>
+                <div id="data-feed"></div>
+            </data-feed>
+
+            <div id="scroll-sentinel" class="loading-spinner">
+                Loading more...
+            </div>
+
+        </section>
+
+
+
+        <!-- ===========================
+             TASK BOARD
+             =========================== -->
+
+        <section id="task-board">
+
+            <h2>
+                Task Board
+            </h2>
+
+
+            <div class="board">
+
+
+                <div class="column">
+
+                    <h3>
+                        To Do
+                    </h3>
+
+
+                    <div
+                        class="task-card"
+                        draggable="true">
+                        Learn HTML
+                    </div>
+
+
+                    <div
+                        class="task-card"
+                        draggable="true">
+                        Practice CSS
+                    </div>
+
+
+                    <div
+                        class="task-card"
+                        draggable="true">
+                        Complete JavaScript
+                    </div>
+
+                </div>
+
+
+                <div class="column">
+
+                    <h3>
+                        In Progress
+                    </h3>
+
+                </div>
+
+
+                <div class="column">
+
+                    <h3>
+                        Done
+                    </h3>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ===========================
+             TASK TRACKER
+             =========================== -->
+
+        <section id="task-tracker">
+
+            <h2>
+                Task Tracker
+            </h2>
+
+
+            <input
+                type="text"
+                id="task-input"
+                placeholder="Enter a task">
+
+
+            <button
+                id="add-task-btn">
+                Add Task
+            </button>
+
+
+            <ul id="task-list"></ul>
+
+        </section>
+
+
+        <section class="reactive-components">
+
+            <h2>Reactive Components</h2>
+
+            <cart-counter></cart-counter>
+            <product-button></product-button>
+
+        </section>
+
+
+        <section class="custom-modals">
+
+            <h2>Custom Modals</h2>
+
+            <custom-modal>
+                <h2 slot="title">Warning</h2>
+                <p>Are you sure you want to delete this?</p>
+            </custom-modal>
+
+            <custom-modal>
+                <h2 slot="title">Information</h2>
+                <p>This is an information message.</p>
+            </custom-modal>
+
+        </section>
+
+
+
+        <!-- ===========================
+             GITHUB LOOKUP - DAY 28
+             =========================== -->
+
+        <section
+            id="github"
+            class="feature-box">
+
+            <h2>
+                GitHub Developer Lookup
+            </h2>
+
+
+            <p>
+                Search for a GitHub developer and
+                explore their public profile and
+                recently updated repositories.
+            </p>
+
+
+            <input
+                type="text"
+                id="github-username"
+                placeholder="Enter GitHub username"
+                autocomplete="off"
+                aria-label="GitHub username">
+
+
+            <div id="dev-profile-card"></div>
+
+
+            <h3>
+                Recent Repositories
+            </h3>
+
+
+            <div
+                id="repos-grid"
+                class="initiatives-grid">
+            </div>
+
+        </section>
+
+
+
+        <!-- ===========================
+             CONTACT US
+             =========================== -->
+
+        <section
+            id="contact"
+            class="feature-box hidden">
+
+            <h2>
+                Contact Us
+            </h2>
+
+
+            <p>
+                Have a question, idea, or want
+                to connect with the Synexus
+                community? Send us a message.
+            </p>
+            
+
+            <form id="contact-form">
+
+
+                <label for="name">
+                    Full Name
+                </label>
+
+
+                <input
+                    type="text"
+                    id="name"
+                    placeholder="Enter your name"
+                    required>
+
+
+                <label for="email">
+                    Email Address
+                </label>
+
+
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Enter your email"
+                    required>
+
+
+                <label for="message">
+                    Message
+                </label>
+
+
+                <textarea
+                    id="message"
+                    rows="5"
+                    placeholder="Write your message"
+                    required></textarea>
+
+
+                <button type="submit">
+                    Send Message
+                </button>
+
+            </form>
+
+        </section>
+
+
+<!-- ======================================================
+     DAY 41 - WEB WORKERS
+====================================================== -->
+
+<section id="web-worker">
+
+    <h2>Web Worker Test</h2>
+
+    <div class="loading-spinner"></div>
+
+    <button id="process-btn">
+        Run Heavy Process
+    </button>
+
+</section>
+
+
+        <section class="websocket-section">
+
+    <h2>Live WebSocket Terminal</h2>
+
+    <div id="live-feed">
+        <p>Connecting to live server...</p>
+    </div>
+
+    <div class="ws-controls">
+
+        <input
+            type="text"
+            id="ws-input"
+            placeholder="Type a message..."
+        >
+
+        <button id="ws-send">
+            Send
+        </button>
+
+    </div>
+
+</section>
+
+
+    </main>
+
+
+      <!-- ===============================
+         FOOTER
+         =============================== -->
+
+    <footer>
+
+        <p>
+            &copy; 2026 Synexus.
+            All Rights Reserved.
+        </p>
+
+
+        <p>
+
+            <a
+                href="https://www.linkedin.com/company/synexus-core/"
+                target="_blank"
+                rel="noopener noreferrer">
+                LinkedIn
+            </a>
+
+            |
+
+            <a
+                href="https://www.instagram.com/synexuscore/"
+                target="_blank"
+                rel="noopener noreferrer">
+                Instagram
+            </a>
+
+        </p>
+
+    </footer>
+
+
+
+    <!-- ===============================
+         MODAL
+         =============================== -->
+
+    <div
+        id="modal"
+        class="modal">
+
+        <div class="modal-content">
+
+
+            <span
+                id="close-modal">
+                &times;
+            </span>
+
+
+            <h2 id="modal-title"></h2>
+
+
+            <p>
+                This initiative is part of
+                the Synexus community.
+            </p>
+
+        </div>
+
+    </div>
+
+
+</body>
+
+</html>
