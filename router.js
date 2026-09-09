@@ -3,7 +3,7 @@
 // DAY 49 - DATA STREAMS & ROUTING
 // ======================================================
 
-const base = "/50-days-web-dev-challenge-";
+const base = "/synexus-capstone";
 
 const routes = {
     "/": "home",
