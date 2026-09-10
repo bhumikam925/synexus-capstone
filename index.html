@@ -1,5 +1,5 @@
+```html
 <!DOCTYPE html>
-
 <html lang="en">
 
 <head>
@@ -19,6 +19,7 @@
     <script type="module" src="main.js"></script>
 
 </head>
+
 
 <body>
 
@@ -279,7 +280,9 @@
              ABOUT
              =========================== -->
 
-        <section id="about">
+        <section
+            id="about"
+            class="hidden">
 
             <h2>
                 About Us
@@ -315,12 +318,12 @@
         </section>
 
 
-
         <!-- ===========================
              INITIATIVES
              =========================== -->
 
-        <section id="initiatives">
+        <section
+            id="initiatives">
 
             <h2>
                 Our Initiatives
@@ -364,12 +367,12 @@
         </section>
 
 
-
         <!-- ===========================
              CORE TEAM
              =========================== -->
 
-        <section id="team">
+        <section
+            id="team">
 
             <h2>
                 Core Team
@@ -391,7 +394,8 @@
                 </user-card>
 
 
-                <div class="profile-card hidden">
+                <div
+                    class="profile-card hidden">
 
                     <img
                         src="https://via.placeholder.com/150"
@@ -443,12 +447,13 @@
         </section>
 
 
-
         <!-- ===========================
              TESTIMONIALS
              =========================== -->
 
-        <section id="testimonials">
+        <section
+            id="testimonials"
+            class="hidden">
 
             <h2>
                 Community Testimonials
@@ -466,7 +471,9 @@
         </section>
 
 
-        <section id="community-feed">
+        <section
+            id="community-feed"
+            class="hidden">
 
             <div class="feed-header">
 
@@ -479,13 +486,19 @@
 
             </div>
 
-           <div id="data-feed"></div>
 
-         <div id="scroll-sentinel">
-    Loading more...
-</div>
+            <data-feed>
+                <div id="data-feed"></div>
+            </data-feed>
+
+
+            <div
+                id="scroll-sentinel"
+                class="loading-spinner">
+                Loading more...
+            </div>
+
         </section>
-
 
 
         <!-- ===========================
@@ -554,7 +567,6 @@
         </section>
 
 
-
         <!-- ===========================
              TASK TRACKER
              =========================== -->
@@ -588,6 +600,7 @@
             <h2>Reactive Components</h2>
 
             <cart-counter></cart-counter>
+
             <product-button></product-button>
 
         </section>
@@ -623,7 +636,6 @@
             </custom-modal>
 
         </section>
-
 
 
         <!-- ===========================
@@ -670,14 +682,13 @@
         </section>
 
 
-
         <!-- ===========================
              CONTACT US
              =========================== -->
 
         <section
             id="contact"
-            class="feature-box">
+            class="feature-box hidden">
 
             <h2>
                 Contact Us
@@ -739,7 +750,6 @@
         </section>
 
 
-
         <!-- ======================================================
              DAY 41 - WEB WORKERS
              ====================================================== -->
@@ -762,8 +772,13 @@
             <h2>Live WebSocket Terminal</h2>
 
             <div id="live-feed">
-                <p>Connecting to live server...</p>
+
+                <p>
+                    Connecting to live server...
+                </p>
+
             </div>
+
 
             <div class="ws-controls">
 
@@ -772,6 +787,7 @@
                     id="ws-input"
                     placeholder="Type a message..."
                 >
+
 
                 <button id="ws-send">
                     Send
@@ -820,7 +836,6 @@
     </footer>
 
 
-
     <!-- ===============================
          MODAL
          =============================== -->
@@ -854,3 +869,4 @@
 </body>
 
 </html>
+```
