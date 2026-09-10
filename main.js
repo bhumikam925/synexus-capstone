@@ -114,7 +114,7 @@ async function fetchNextPage() {
 
     sentinel.textContent =
         "❌ Unable to load more posts. Please try again.";
-}
+
     } finally {
 
         isLoading = false;
