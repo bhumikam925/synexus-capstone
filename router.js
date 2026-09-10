@@ -3,59 +3,67 @@
 // DAY 49 - DATA STREAMS & ROUTING
 // ======================================================
 
-const base = "/synexus-capstone";
-
 const routes = {
-    "/": "home",
-    "/about": "about",
-    "/initiatives": "initiatives",
-    "/team": "team",
-    "/github": "github",
-    "/contact": "contact"
+    "#home": "home",
+    "#about": "about",
+    "#initiatives": "initiatives",
+    "#team": "team",
+    "#github": "github",
+    "#contact": "contact"
 };
 
 export function router() {
-    const currentPath = window.location.pathname;
 
-    const path = currentPath.startsWith(base)
-        ? currentPath.slice(base.length) || "/"
-        : currentPath;
+    const hash = window.location.hash || "#home";
 
-    const route = routes[path] || "home";
+    const route = routes[hash] || "home";
 
-    const activeSection = document.getElementById(route);
+    const activeSection =
+        document.getElementById(route);
 
     if (activeSection) {
+
         activeSection.scrollIntoView({
             behavior: "smooth",
             block: "start"
         });
+
     }
 
     console.log("Current route:", route);
 }
 
 export function navigateTo(url) {
-    const newUrl = url === "/"
-        ? base + "/"
-        : base + url;
 
-    history.pushState(null, null, newUrl);
+    window.location.hash = url;
+
     router();
 }
 
-window.addEventListener("popstate", router);
+window.addEventListener(
+    "hashchange",
+    router
+);
 
-document.addEventListener("click", (event) => {
-    const link = event.target.closest("a");
+document.addEventListener(
+    "click",
+    (event) => {
 
-    if (!link) return;
+        const link =
+            event.target.closest("a");
 
-    const url = link.getAttribute("href");
+        if (!link) return;
 
-    if (!url || !url.startsWith("/")) return;
+        const url =
+            link.getAttribute("href");
 
-    event.preventDefault();
+        if (!url || !url.startsWith("#")) {
+            return;
+        }
 
-    navigateTo(url);
-});
+        event.preventDefault();
+
+        navigateTo(url);
+
+    }
+);
